@@ -38,7 +38,6 @@ if __name__ == "__main__":
     for alpha in [0.1, 0.316, 1, 3.16, 10]:
         scenario = tp.create_scenario(default_scenario_cfg, name=f"alpha {alpha:.2f}")
         dataset = make_moons(noise=0.3, random_state=0)
-        scenario.X.write(pd.DataFrame(dataset[0], columns=["x1", "x2"]))
         scenario.y.write(pd.Series(dataset[1], name="y"))
         scenario.alpha.write(alpha)
         tp.submit(scenario)

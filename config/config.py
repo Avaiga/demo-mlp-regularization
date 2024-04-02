@@ -17,7 +17,7 @@ dataset = make_moons(noise=0.3, random_state=0)
 
 
 def configure():
-    X_cfg = Config.configure_data_node("X")
+    X_cfg = Config.configure_generic_data_node("X", read_fct=lambda: dataset[0])
     y_cfg = Config.configure_data_node("y")
     X_train_cfg = Config.configure_data_node("X_train")
     X_test_cfg = Config.configure_data_node("X_test")
